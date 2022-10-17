@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>
+      Enter OTP
+    </title>
+     <link rel="stylesheet" href="/style.css">
+     <script src="/otp.js">
+     </script>
+  </head>
+<style scoped>
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+  </style>
+  <body>
+  
+   <%- include('./partials/header') %>
+  <main class="min-h-screen bg-gray-100  py-6 px-3 flex flex-col sm:py-12">
+      
+      <div class="relative px-4 py-10   sm:rounded-3xl sm:p-20">
+        <h1 class="relative px-4 py-10 text-4xl font-bold">
+        Verify Phone
+      </h1>
+    <form action="/api/otp" method="POST">
+  
+    
+    <label for="number" class="text-2xl font-bold">
+  Phone
+    </label>
+   
+    <input readonly class="px-2 py-2 mx-2 my-2 focus:outline-none focus:ring focus:border-indigo-700 shadow-lg text-xl bg-gray-200" id="number" name="number" value=<%-number %>  >
+  
+    
+   
+    
+   <div class="flex flex-row mt-2">
+    <label for="OTP" class="text-2xl font-bold">
+<h2 class="mr-6">  OTP </h2>
+    </label>
+    <div id="otp" class="flex flex-row  text-center px-2">
+   
+      <input maxlength="1" name="otp1" type="number" class="text-2xl w-7  focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+      <input maxlength="1" name="otp2" type="number" class="w-7 text-2xl focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+      <input maxlength="1" name="otp3" type="number" class="w-7 text-2xl focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+      <input maxlength="1" name="otp4" type="number" class="w-7 text-2xl focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+      <input maxlength="1" name="otp5" type="number" class="w-7 text-2xl focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+      <input maxlength="1" name="otp6" type="number" class="w-7 text-2xl focus:outline-none shadow-lg border-solid focus:border-none border-2 mx-1 focus:outline-none focus:border-none focus:ring focus:border-indigo-800 border-blue-100 justify-center text-center">
+      </input>
+    </div>
+    </div>
+
+  
+    <input type="submit" class="rounded text-xl px-2 py-2 mx-2 my-2  bg-gradient-to-l from-blue-800 to-blue-900 text-white shadow-lg" value="Verify"/>
+   
+    </form>
+    </div>
+    </div>
+    </main>
+  </body>
+</html>

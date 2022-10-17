@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>
+      Create your account
+    </title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+    <main class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+    <div class="text-2xl relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20  justify-center">
+    <h1 class=" relative px-4 py-10 text-4xl font-bold   justify-center">
+       Create account 
+      
+      </h1>
+         
+              <form action="/api/create" method="POST">
+               <label for="name" class="font-bold">
+                Name
+                </label>
+               
+                <input id="name" class="px-2 py-2 mx-2 my-2 shadow-lg focus:outline-none focus:ring focus:border-indigo-800  text-2xl " name="name" placeholder="Name">
+
+                </input>
+               <br>
+               
+                <label for="role" class="font-bold " >
+                 Role
+                </label>
+                
+                <select id="role" name="role" class="px-2 py-2 mx-2 my-2 shadow-lg focus:outline-none focus:ring focus:border-indigo-800  text-2xl">
+                <option value="recruiter"> recruiter</option>
+                <option value="tester">tester</option>
+                <option value="other">other</option> 
+
+                </select>
+                <br>
+                
+                    <input type="submit" value="save" class="px-2 py-1 text-white bg-blue-600 shadow-lg"/>
+                 
+              </form>
+                  </div>
+                  
+                </div>
+                
+                
+  </div>
+</main>
+
+  </body>
+</html>

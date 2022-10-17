@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>
+      Authentication Flow sample      
+    </title>
+    <link href="https://pictogrammers.github.io/@mdi/font/5.9.55/css/materialdesignicons.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> 
+    a{
+      width:100%;
+      
+    }
+    #Profile, #Logout{
+      width:100%;
+    }
+    </style>
+  </head>
+  <body class="pt-20 bg-gray-200 overflow-x-hidden">
+   <%- include('./partials/header') %>
+  <main  >
+    <div class="bg-gradient-to-l pb-24 right-0 from-blue-700 to-blue-900 flex justify-between flex-col md:flex-row">
+     <p class="text-white mx-8 text-xl max-w-prose ">
+     AuthFlow is a demonstration of signup through OTP and JWT authorization.
+     This supports password free signup proccess followed by account creation.
+     All your data is secured safely through MongDb.
+
+
+     </p>
+
+     <nav >
+    <div class="mx-2 flex  flex-row md:flex-col justify-evenly  text-xl text-white">
+<a href="https://github.com/Priyanshu-001/">
+     <span class="my-2 mdi mdi-github">
+    github
+
+</span>
+</a>
+<a href="https://replit.com/@PriyanshuAhuja/OTP-authentication">
+ <span class="my-2 mdi mdi-server">
+    Repl.it
+
+</span>
+</a>
+<a href="https://replit.com/@PriyanshuAhuja/OTP-authentication">
+ <span class="my-2 mdi mdi-linkedin">
+    LinkedIn
+
+</span>
+</a>
+</div>
+     </nav>
+    </div>
+    
+      
+      <div class="flex flex-col items-stretch items-stretch relative outline shadow-lg pb-20 px-4 pt-8  rounded-none bg-white sm:max-w-sm md:max-w-lg sm:mx-4 -my-12">
+    
+      
+        <h1 class="relative px-2   text-4xl font-bold">
+       <% if(!isUser) {  %>  Enter Phone Number  <% } else {  %>
+       Hi, <%= user.name || user.phone  %> <% } %>
+      </h1>
+    <% if(!isUser) { %>
+    <form  action="/api/verify" method="POST">
+    <label for="number" class="invisible sm:visible mr-2 text-xl font-bold">
+    Number
+    </label>
+    <input id="number" name="number" class="py-1 mt-12  focus:outline-none focus:ring focus:border-indigo-700 shadow-lg text-2xl " placeholder="+9189xxxx34" type="tel"/>
+    <br>
+    <input class="bg-gradient-to-l from-blue-800 to-blue-900 rounded text-xl text-white p-3  mt-14  shadow-lg "type="submit" value="Continue"/>
+    </form>
+    <% } else { %>
+    <a href="/profile"class="mt-12 mb-4">
+    <button id="Profile" class="p-2 bg-gradient-to-l from-blue-800 to-blue-900 border-2  rounded text-xl text-white">  <label for="Profile"> Profile </label> </button>
+    </a>
+    <a href="/api/logout" class="mb-8 mt-4 ">
+     <button id="Logout" class="p-2 border-2 rounded text-xl text-blue-700 border-blue-700">  <label for="Logout"> Logout </label>
+     </button>
+     
+       </a>
+ 
+  <% } %> 
+      </div>
+ 
+    </main>
+  </body>
+</html>
