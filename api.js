@@ -13,8 +13,15 @@ router.post('/verify',(req,res)=>{
 client.verify.services(SERVICE)
              .verifications
              .create({to: req.body.number, channel: 'sms'})
-             .then(verification => console.log(verification.status));
-res.redirect(`/OTP?number=${req.body.number}`);
+             .then(verification => {
+               console.log(verification.status)
+              res.redirect(`/OTP?number=${req.body.number}`);
+             })
+             .catch(err=>{
+               console.log(err)
+               return res.send('Invalid number please make sure you have included your country code')
+             })
+
 }
 )
 
